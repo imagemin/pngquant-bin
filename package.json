@@ -1,0 +1,56 @@
+{
+  "name": "pngquant-bin",
+  "version": "0.0.0",
+  "description": "pngquant wrapper that makes it seamlessly available as a local dependency on OS X, Linux and Windows",
+  "keywords": [
+    "png",
+    "img",
+    "image",
+    "compress",
+    "minify",
+    "optimize"
+  ],
+  "homepage": "https://github.com/sindresorhus/node-pngquant-bin",
+  "bugs": "https://github.com/sindresorhus/node-pngquant-bin/issues",
+  "license": "MIT",
+  "author": {
+    "name": "Sindre Sorhus",
+    "email": "sindresorhus@gmail.com",
+    "url": "http://sindresorhus.com"
+  },
+  "contributors": [
+    {
+      "name": "Kevin Martensson",
+      "email": "kevinmartensson@gmail.com",
+      "url": "http://kevinmartensson.com"
+    }
+  ],
+  "files": [
+    "bin",
+    "lib",
+    "test"
+  ],
+  "main": "pngquant",
+  "bin": {
+    "pngquant": "bin/pngquant.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/sindresorhus/node-pngquant-bin.git"
+  },
+  "scripts": {
+    "test": "mocha",
+    "postinstall": "node lib/check.js"
+  },
+  "dependencies": {
+    "which": "~1.0.5",
+    "mocha": "~1.12.0",
+    "tar": "~0.1.17",
+    "request": "~2.25.0",
+    "request-progress": "~0.2.1",
+    "chalk": "~0.2.0"
+  },
+  "engines": {
+    "node": ">=0.8.0"
+  }
+}
