@@ -20,7 +20,7 @@ describe('pngquant', function () {
 	});
 
 	it('should successfully proxy pngquant', function (cb) {
-		var binPath = path.join(__dirname, '../bin/pngquant');
+		var binPath = path.join(__dirname, '../bin/pngquant.js');
 
 		execFile('node', [binPath, '--version', '-'], function (err, stdout) {
 			assert(/\d\.\d\.\d/.test(stdout));
@@ -29,7 +29,7 @@ describe('pngquant', function () {
 	});
 
 	it('should minify a .png', function (cb) {
-		var binPath = path.join(__dirname, '../bin/pngquant');
+		var binPath = path.join(__dirname, '../bin/pngquant.js');
 		var args = [
 			path.join(__dirname, 'fixtures', 'test.png')
 		];
