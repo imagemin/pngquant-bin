@@ -30,7 +30,7 @@
     "lib",
     "test"
   ],
-  "main": "pngquant",
+  "main": "lib/pngquant",
   "bin": {
     "pngquant": "bin/pngquant.js"
   },
