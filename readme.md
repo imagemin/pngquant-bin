@@ -9,7 +9,7 @@
 
 ```js
 var execFile = require('child_process').execFile;
-var binPath = require('pngquant').path;
+var binPath = require('pngquant-bin').path;
 
 execFile(binPath, ['input.png'], function() {
 	console.log('Image minified');
