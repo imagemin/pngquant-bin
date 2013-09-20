@@ -1,22 +1,27 @@
 /*global describe, it */
 'use strict';
-var fs = require('fs');
-var path = require('path');
-var assert = require('assert');
-var pngquant = require('../lib/pngquant');
-var util = require('../lib/util');
-var binPath = pngquant.path;
-var srcUrl = pngquant.src;
 
-describe('rebuild', function () {
-	it('it should rebuild the binaries', function (cb) {
+var assert = require('assert');
+var Bin = require('bin-wrapper');
+var fs = require('fs');
+var options = require('../lib/pngquant').options;
+var path = require('path');
+
+describe('pngquant.build()', function () {
+	it('should rebuild the pngquant binaries', function (cb) {
 		this.timeout(false);
 
-		var origCTime = fs.statSync(binPath).ctime;
-		util.build(srcUrl, path.dirname(binPath), function (err) {
-			var actualCTime = fs.statSync(binPath).ctime;
+		options.path = path.join(__dirname, '../tmp');
+		options.buildScript = 'make install BINPREFIX="'+ path.join(__dirname, '../tmp') + '"';
+
+		var bin = new Bin(options);
+
+		bin.build(function () {
+			var origCTime = fs.statSync(bin.path).ctime;
+			var actualCTime = fs.statSync(bin.path).ctime;
+
 			assert(actualCTime !== origCTime);
-			cb(err);
-		}).path;
+			cb();
+		});
 	});
 });
