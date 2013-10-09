@@ -7,7 +7,7 @@
 
 ## Install
 
-Install with [npm](https://npmjs.org/package/pngquant-bin): `npm install --save pngquant-bin`
+- Install with [npm](https://npmjs.org/package/pngquant-bin): `npm install --save pngquant-bin`
 
 
 ## Example usage
@@ -30,15 +30,16 @@ Note to self on how to update the binaries.
 
 ### OS X
 
-Run `npm install` on a OS X 10.7 machine to build the binary.
+- Run `npm install` on a OS X 10.7 machine to build the binary.
 
 ### Linux
 
-Run `npm install` to build the binary.
+- Install dependencies by running `sudo apt-get install build-essential libpng-dev zlib1g-dev`.
+- Run `npm install` to build the binary.
 
 ### Windows
 
-Download the [Windows binary](http://pngquant.org/pngquant-windows.zip) and put it in `vendor/win/`.
+- Download the [Windows binary](http://pngquant.org/pngquant-windows.zip) and put it in `vendor/win/`.
 
 
 ## License
