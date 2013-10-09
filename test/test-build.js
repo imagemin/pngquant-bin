@@ -10,11 +10,10 @@ var path = require('path');
 describe('pngquant.build()', function () {
 	it('should rebuild the pngquant binaries', function (cb) {
 		this.timeout(false);
-
-		options.path = path.join(__dirname, '../tmp');
-		options.buildScript = 'make install BINPREFIX="'+ path.join(__dirname, '../tmp') + '"';
-
 		var bin = new Bin(options);
+
+		bin.path = path.join(__dirname, '../tmp', bin.bin);
+		bin.buildScript = 'make install BINPREFIX=' + path.join(__dirname, '../tmp');
 
 		bin.build(function () {
 			var origCTime = fs.statSync(bin.path).ctime;
