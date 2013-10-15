@@ -13,7 +13,7 @@ describe('pngquant.build()', function () {
 		var bin = new Bin(options);
 
 		bin.path = path.join(__dirname, '../tmp', bin.bin);
-		bin.buildScript = 'make install BINPREFIX=' + path.join(__dirname, '../tmp');
+		bin.buildScript = 'make install BINPREFIX="' + path.join(__dirname, '../tmp') + '"';
 
 		bin.build(function () {
 			var origCTime = fs.statSync(bin.path).ctime;
