@@ -26,27 +26,29 @@
     }
   ],
   "files": [
-    "bin",
-    "lib"
+    "cli.js",
+    "index.js"
   ],
-  "main": "lib/pngquant",
+  "main": "index.js",
   "bin": {
-    "pngquant": "bin/pngquant.js"
+    "pngquant": "cli.js"
   },
   "repository": {
     "type": "git",
     "url": "git://github.com/sindresorhus/node-pngquant-bin.git"
   },
   "scripts": {
-    "test": "mocha",
-    "postinstall": "node lib/check.js"
+    "test": "mocha --reporter list --timeout 0",
+    "postinstall": "node index.js"
   },
   "dependencies": {
-    "bin-wrapper": "~0.1.3",
-    "chalk": "~0.2.0"
+    "bin-wrapper": "https://github.com/kevva/bin-wrapper/archive/master.tar.gz",
+    "chalk": "~0.4.0"
   },
   "devDependencies": {
-    "mocha": "~1.13.0"
+    "bin-check": "~0.1.0",
+    "mocha": "~1.17.1",
+    "rimraf": "~2.2.6"
   },
   "engines": {
     "node": ">=0.10.0"
