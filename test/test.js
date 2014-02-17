@@ -6,8 +6,8 @@ var binCheck = require('bin-check');
 var BinWrapper = require('bin-wrapper');
 var fs = require('fs');
 var path = require('path');
-var spawn = require('child_process').spawn;
 var rm = require('rimraf');
+var spawn = require('child_process').spawn;
 
 describe('pngquant()', function () {
     afterEach(function (cb) {
@@ -41,15 +41,15 @@ describe('pngquant()', function () {
     it('should minify a PNG', function (cb) {
         var binPath = require('../').path;
         var args = [
-            '-o', path.join(__dirname, 'tmp/test.png'),
             path.join(__dirname, 'fixtures/test.png')
         ];
 
         spawn(binPath, args).on('close', function () {
             var src = fs.statSync(path.join(__dirname, 'fixtures/test.png')).size;
-            var dest = fs.statSync(path.join(__dirname, 'tmp/test.png')).size;
+            var dest = fs.statSync(path.join(__dirname, 'fixtures/test-fs8.png')).size;
 
-            cb(assert(dest < src));
+            assert(dest < src);
+            rm(path.join(__dirname, 'fixtures/test-fs8.png'), cb);
         });
     });
 });
