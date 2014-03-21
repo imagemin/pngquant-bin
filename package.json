@@ -47,7 +47,7 @@
   },
   "devDependencies": {
     "bin-check": "~0.1.0",
-    "mocha": "~1.17.1",
+    "mocha": "~1.18.2",
     "rimraf": "~2.2.6"
   },
   "engines": {
