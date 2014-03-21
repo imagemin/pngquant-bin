@@ -19,10 +19,10 @@ var bs = 'make install BINPREFIX="' + bin.dest + '"';
 fs.exists(bin.path, function (exists) {
 	if (!exists) {
 		bin
-			.addUrl('https://raw.github.com/sindresorhus/node-pngquant-bin/v0.1.5/vendor/osx/pngquant', 'darwin')
-			.addUrl('https://raw.github.com/sindresorhus/node-pngquant-bin/v0.1.5/vendor/linux/x86/pngquant', 'linux', 'x86')
-			.addUrl('https://raw.github.com/sindresorhus/node-pngquant-bin/v0.1.5/vendor/linux/x64/pngquant', 'linux', 'x64')
-			.addUrl('https://raw.github.com/sindresorhus/node-pngquant-bin/v0.1.5/vendor/win/pngquant.exe', 'win32')
+			.addUrl('https://raw.github.com/sindresorhus/node-pngquant-bin/v0.1.7/vendor/osx/pngquant', 'darwin')
+			.addUrl('https://raw.github.com/sindresorhus/node-pngquant-bin/v0.1.7/vendor/linux/x86/pngquant', 'linux', 'x86')
+			.addUrl('https://raw.github.com/sindresorhus/node-pngquant-bin/v0.1.7/vendor/linux/x64/pngquant', 'linux', 'x64')
+			.addUrl('https://raw.github.com/sindresorhus/node-pngquant-bin/v0.1.7/vendor/win/pngquant.exe', 'win32')
 			.addSource('https://github.com/pornel/pngquant/archive/2.0.0.tar.gz')
 			.check()
 			.on('error', function (err) {
