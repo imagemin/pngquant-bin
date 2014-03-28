@@ -23,7 +23,7 @@ fs.exists(bin.path, function (exists) {
 			.addUrl('https://raw.github.com/sindresorhus/node-pngquant-bin/v0.1.7/vendor/linux/x86/pngquant', 'linux', 'x86')
 			.addUrl('https://raw.github.com/sindresorhus/node-pngquant-bin/v0.1.7/vendor/linux/x64/pngquant', 'linux', 'x64')
 			.addUrl('https://raw.github.com/sindresorhus/node-pngquant-bin/v0.1.7/vendor/win/pngquant.exe', 'win32')
-			.addSource('https://github.com/pornel/pngquant/archive/2.0.0.tar.gz')
+			.addSource('https://github.com/pornel/pngquant/archive/2.1.0.tar.gz')
 			.check()
 			.on('error', function (err) {
 				console.log(chalk.red('✗ ' + err.message));
