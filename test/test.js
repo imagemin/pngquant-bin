@@ -23,7 +23,7 @@ describe('pngquant()', function () {
         var bs = 'make install BINPREFIX="' + bin.dest + '"';
 
         bin
-            .addSource('https://github.com/pornel/pngquant/archive/2.0.0.tar.gz')
+            .addSource('https://github.com/pornel/pngquant/archive/2.1.0.tar.gz')
             .build(bs)
             .on('finish', function () {
                 cb(assert(true));
