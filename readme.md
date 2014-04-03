@@ -1,4 +1,4 @@
-# node-pngquant-bin [![Build Status](https://secure.travis-ci.org/sindresorhus/node-pngquant-bin.png?branch=master)](http://travis-ci.org/sindresorhus/node-pngquant-bin)
+# node-pngquant-bin [![Build Status](https://travis-ci.org/sindresorhus/node-pngquant-bin.svg?branch=master)](https://travis-ci.org/sindresorhus/node-pngquant-bin)
 
 [pngquant](http://pngquant.org) 1.8.4 Node.js wrapper that makes it seamlessly available as a local dependency on OS X, Linux and Windows.
 
@@ -7,10 +7,12 @@
 
 ## Install
 
-- Install with [npm](https://npmjs.org/package/pngquant-bin): `npm install --save pngquant-bin`
+```bash
+$ npm install --save pngquant-bin
+```
 
 
-## Example usage
+## Usage
 
 ```js
 var execFile = require('child_process').execFile;
@@ -44,6 +46,6 @@ Note to self on how to update the binaries.
 
 ## License
 
-Everything except binaries: MIT License • © [Sindre Sorhus](http://sindresorhus.com)
+Everything except binaries: [MIT](http://opensource.org/licenses/MIT) © [Sindre Sorhus](http://sindresorhus.com)
 
 gifsicle licensed under the GNU General Public License, Version 2.
