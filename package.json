@@ -1,6 +1,6 @@
 {
   "name": "pngquant-bin",
-  "version": "0.1.7",
+  "version": "0.2.0",
   "description": "pngquant wrapper that makes it seamlessly available as a local dependency on OS X, Linux and Windows",
   "keywords": [
     "png",
