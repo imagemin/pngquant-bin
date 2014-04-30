@@ -11,10 +11,10 @@ var path = require('path');
  */
 
 var bin = new BinWrapper()
-	.src('https://raw.github.com/sindresorhus/node-pngquant-bin/v0.2.0/vendor/osx/pngquant', 'darwin')
-	.src('https://raw.github.com/sindresorhus/node-pngquant-bin/v0.2.0/vendor/linux/x86/pngquant', 'linux', 'x86')
-	.src('https://raw.github.com/sindresorhus/node-pngquant-bin/v0.2.0/vendor/linux/x64/pngquant', 'linux', 'x64')
-	.src('https://raw.github.com/sindresorhus/node-pngquant-bin/v0.2.0/vendor/win/pngquant.exe', 'win32')
+	.src('https://raw.github.com/sindresorhus/node-pngquant-bin/0.3.0/vendor/osx/pngquant', 'darwin')
+	.src('https://raw.github.com/sindresorhus/node-pngquant-bin/0.3.0/vendor/linux/x86/pngquant', 'linux', 'x86')
+	.src('https://raw.github.com/sindresorhus/node-pngquant-bin/0.3.0/vendor/linux/x64/pngquant', 'linux', 'x64')
+	.src('https://raw.github.com/sindresorhus/node-pngquant-bin/0.3.0/vendor/win/pngquant.exe', 'win32')
 	.dest(path.join(__dirname, 'vendor'))
 	.use(process.platform === 'win32' ? 'pngquant.exe' : 'pngquant');
 
