@@ -2,55 +2,43 @@
   "name": "pngquant-bin",
   "version": "0.2.0",
   "description": "pngquant wrapper that makes it seamlessly available as a local dependency on OS X, Linux and Windows",
-  "keywords": [
-    "png",
-    "img",
-    "image",
-    "compress",
-    "minify",
-    "optimize"
-  ],
-  "homepage": "https://github.com/sindresorhus/node-pngquant-bin",
-  "bugs": "https://github.com/sindresorhus/node-pngquant-bin/issues",
   "license": "MIT",
+  "repository": "kevva/pngquant-bin",
   "author": {
-    "name": "Sindre Sorhus",
-    "email": "sindresorhus@gmail.com",
-    "url": "http://sindresorhus.com"
+    "name": "Kevin Mårtensson",
+    "email": "kevinmartensson@gmail.com",
+    "url": "http://kevinmartensson.com"
   },
-  "contributors": [
-    {
-      "name": "Kevin Martensson",
-      "email": "kevinmartensson@gmail.com",
-      "url": "http://kevinmartensson.com"
-    }
-  ],
-  "files": [
-    "cli.js",
-    "index.js"
-  ],
-  "main": "index.js",
+  "engines": {
+    "node": ">=0.10.0"
+  },
   "bin": {
     "pngquant": "cli.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/sindresorhus/node-pngquant-bin.git"
   },
   "scripts": {
     "test": "mocha --reporter list --timeout 0",
     "postinstall": "node index.js"
   },
+  "files": [
+    "cli.js",
+    "index.js"
+  ],
+  "keywords": [
+    "compress",
+    "image",
+    "img",
+    "minify",
+    "optimize",
+    "png"
+  ],
   "dependencies": {
-    "bin-wrapper": "~0.2.0",
-    "chalk": "~0.4.0"
+    "bin-build": "^0.1.0",
+    "bin-wrapper": "^0.3.0",
+    "chalk": "^0.4.0"
   },
   "devDependencies": {
-    "bin-check": "~0.1.0",
-    "mocha": "~1.18.2",
-    "rimraf": "~2.2.6"
-  },
-  "engines": {
-    "node": ">=0.10.0"
+    "bin-check": "^0.1.0",
+    "mocha": "^1.18.2",
+    "rimraf": "^2.2.6"
   }
 }
