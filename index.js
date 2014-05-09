@@ -34,7 +34,11 @@ fs.exists(bin.use(), function (exists) {
 
 				return builder.build(function (err) {
 					if (err) {
-						return console.log(chalk.red('✗ ' + err));
+						console.log(chalk.red('✗ pngquant failed to build, make sure that ' + process.platform === 'darwin' ? 'libpng' : 'libpng-dev' + ' is installed'));
+						console.log('');
+						console.log(err);
+
+						return;
 					}
 
 					console.log(chalk.green('✓ pngquant built successfully'));
