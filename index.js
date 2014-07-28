@@ -11,10 +11,10 @@ var path = require('path');
  */
 
 var bin = new BinWrapper()
-	.src('https://raw.github.com/sindresorhus/node-pngquant-bin/0.3.0/vendor/osx/pngquant', 'darwin')
-	.src('https://raw.github.com/sindresorhus/node-pngquant-bin/0.3.0/vendor/linux/x86/pngquant', 'linux', 'x86')
-	.src('https://raw.github.com/sindresorhus/node-pngquant-bin/0.3.0/vendor/linux/x64/pngquant', 'linux', 'x64')
-	.src('https://raw.github.com/sindresorhus/node-pngquant-bin/0.3.0/vendor/win/pngquant.exe', 'win32')
+	.src('https://raw.github.com/sindresorhus/node-pngquant-bin/0.4.0/vendor/osx/pngquant', 'darwin')
+	.src('https://raw.github.com/sindresorhus/node-pngquant-bin/0.4.0/vendor/linux/x86/pngquant', 'linux', 'x86')
+	.src('https://raw.github.com/sindresorhus/node-pngquant-bin/0.4.0/vendor/linux/x64/pngquant', 'linux', 'x64')
+	.src('https://raw.github.com/sindresorhus/node-pngquant-bin/0.4.0/vendor/win/pngquant.exe', 'win32')
 	.dest(path.join(__dirname, 'vendor'))
 	.use(process.platform === 'win32' ? 'pngquant.exe' : 'pngquant');
 
@@ -29,7 +29,7 @@ fs.exists(bin.use(), function (exists) {
 				console.log(chalk.red('✗ pre-build test failed, compiling from source...'));
 
 				var builder = new BinBuild()
-					.src('https://github.com/pornel/pngquant/archive/2.1.0.tar.gz')
+					.src('https://github.com/pornel/pngquant/archive/2.3.0.tar.gz')
 					.make('make install BINPREFIX="' + bin.dest() + '"');
 
 				return builder.build(function (err) {
