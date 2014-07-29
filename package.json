@@ -16,7 +16,7 @@
     "pngquant": "cli.js"
   },
   "scripts": {
-    "test": "mocha --reporter list --timeout 0",
+    "test": "mocha --reporter list --timeout 50000",
     "postinstall": "node index.js"
   },
   "files": [
