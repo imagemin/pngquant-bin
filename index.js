@@ -5,6 +5,7 @@ var BinWrapper = require('bin-wrapper');
 var chalk = require('chalk');
 var fs = require('fs');
 var path = require('path');
+var logSymbols = require('log-symbols');
 var pkg = require('./package.json');
 
 var BIN_VERSION = '2.3.0';
@@ -30,7 +31,7 @@ fs.exists(bin.use(), function (exists) {
 	if (!exists) {
 		bin.run(['--version'], function (err) {
 			if (err) {
-				console.log(chalk.red('✗ pre-build test failed, compiling from source...'));
+				console.log(logSymbols.warning + ' pre-build test failed, compiling from source...');
 
 				var builder = new BinBuild()
 					.src('https://github.com/pornel/pngquant/archive/' + BIN_VERSION + '.tar.gz')
@@ -38,18 +39,18 @@ fs.exists(bin.use(), function (exists) {
 
 				return builder.build(function (err) {
 					if (err) {
-						console.log(chalk.red('✗ pngquant failed to build, make sure that ' + process.platform === 'darwin' ? 'libpng' : 'libpng-dev' + ' is installed'));
+						console.log(logSymbols.error + ' pngquant failed to build, make sure that ' + process.platform === 'darwin' ? 'libpng' : 'libpng-dev' + ' is installed');
 						console.log('');
 						console.log(err);
 
 						return;
 					}
 
-					console.log(chalk.green('✓ pngquant built successfully'));
+					console.log(logSymbols.success + ' pngquant built successfully!');
 				});
 			}
 
-			console.log(chalk.green('✓ pre-build test passed successfully'));
+			console.log(logSymbols.success + ' pre-build test passed successfully!');
 		});
 	}
 });
