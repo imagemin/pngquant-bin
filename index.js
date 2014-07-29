@@ -5,16 +5,20 @@ var BinWrapper = require('bin-wrapper');
 var chalk = require('chalk');
 var fs = require('fs');
 var path = require('path');
+var pkg = require('./package.json');
+
+var BIN_VERSION = '2.3.0';
+var BASE_URL = 'https://raw.github.com/kevva/pngquant-bin/' + pkg.version + '/vendor/';
 
 /**
  * Initialize a new BinWrapper
  */
 
 var bin = new BinWrapper()
-	.src('https://raw.github.com/sindresorhus/node-pngquant-bin/0.4.0/vendor/osx/pngquant', 'darwin')
-	.src('https://raw.github.com/sindresorhus/node-pngquant-bin/0.4.0/vendor/linux/x86/pngquant', 'linux', 'x86')
-	.src('https://raw.github.com/sindresorhus/node-pngquant-bin/0.4.0/vendor/linux/x64/pngquant', 'linux', 'x64')
-	.src('https://raw.github.com/sindresorhus/node-pngquant-bin/0.4.0/vendor/win/pngquant.exe', 'win32')
+	.src(BASE_URL + 'osx/pngquant', 'darwin')
+	.src(BASE_URL + 'linux/x86/pngquant', 'linux', 'x86')
+	.src(BASE_URL + 'linux/x64/pngquant', 'linux', 'x64')
+	.src(BASE_URL + 'win/pngquant.exe', 'win32')
 	.dest(path.join(__dirname, 'vendor'))
 	.use(process.platform === 'win32' ? 'pngquant.exe' : 'pngquant');
 
@@ -29,7 +33,7 @@ fs.exists(bin.use(), function (exists) {
 				console.log(chalk.red('✗ pre-build test failed, compiling from source...'));
 
 				var builder = new BinBuild()
-					.src('https://github.com/pornel/pngquant/archive/2.3.0.tar.gz')
+					.src('https://github.com/pornel/pngquant/archive/' + BIN_VERSION + '.tar.gz')
 					.make('make install BINPREFIX="' + bin.dest() + '"');
 
 				return builder.build(function (err) {
