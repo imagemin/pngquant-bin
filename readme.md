@@ -6,12 +6,6 @@
 
 ## Install
 
-On OS X 10.9+ you need to install libpng first:
-
-```bash
-$ brew install libpng
-```
-
 ```bash
 $ npm install --save pngquant-bin
 ```
