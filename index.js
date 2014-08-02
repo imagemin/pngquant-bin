@@ -9,7 +9,7 @@ var logSymbols = require('log-symbols');
 var pkg = require('./package.json');
 
 var BIN_VERSION = '2.3.0';
-var BASE_URL = 'https://raw.github.com/kevva/pngquant-bin/' + pkg.version + '/vendor/';
+var BASE_URL = 'https://raw.github.com/kevva/pngquant-bin/v' + pkg.version + '/vendor/';
 
 /**
  * Initialize a new BinWrapper
