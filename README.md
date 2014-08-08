@@ -1,4 +1,4 @@
-# pngquant-bin [![Build Status](https://travis-ci.org/kevva/pngquant-bin.svg?branch=master)](https://travis-ci.org/kevva/pngquant-bin)
+# pngquant-bin [![Build Status](https://travis-ci.org/imagemin/pngquant-bin.svg?branch=master)](https://travis-ci.org/imagemin/pngquant-bin)
 
 [pngquant](http://pngquant.org) 2.3.0 Node.js wrapper that makes it seamlessly available as a local dependency on OS X, Linux and Windows.
 

@@ -3,7 +3,7 @@
   "version": "0.3.4",
   "description": "pngquant wrapper that makes it seamlessly available as a local dependency on OS X, Linux and Windows",
   "license": "MIT",
-  "repository": "kevva/pngquant-bin",
+  "repository": "imagemin/pngquant-bin",
   "author": {
     "name": "Kevin Mårtensson",
     "email": "kevinmartensson@gmail.com",
