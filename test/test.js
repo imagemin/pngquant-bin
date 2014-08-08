@@ -21,7 +21,7 @@ describe('pngquant()', function () {
 	it('should rebuild the pngquant binaries', function (cb) {
 		var tmp = path.join(__dirname, 'tmp');
 		var builder = new BinBuild()
-			.src('https://github.com/pornel/pngquant/archive/2.1.0.tar.gz')
+			.src('https://github.com/pornel/pngquant/archive/2.3.0.tar.gz')
 			.make('make install BINPREFIX="' + tmp + '"');
 
 		builder.build(function (err) {

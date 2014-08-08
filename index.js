@@ -2,11 +2,14 @@
 
 var BinBuild = require('bin-build');
 var BinWrapper = require('bin-wrapper');
-var chalk = require('chalk');
 var fs = require('fs');
-var path = require('path');
 var logSymbols = require('log-symbols');
+var path = require('path');
 var pkg = require('./package.json');
+
+/**
+ * Variables
+ */
 
 var BIN_VERSION = '2.3.0';
 var BASE_URL = 'https://raw.github.com/kevva/pngquant-bin/v' + pkg.version + '/vendor/';
