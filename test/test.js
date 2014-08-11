@@ -22,7 +22,7 @@ describe('pngquant()', function () {
 		var tmp = path.join(__dirname, 'tmp');
 		var builder = new BinBuild()
 			.src('https://github.com/pornel/pngquant/archive/2.3.0.tar.gz')
-			.make('make install BINPREFIX="' + tmp + '"');
+			.cmd('make install BINPREFIX="' + tmp + '"');
 
 		builder.build(function (err) {
 			assert(!err);
@@ -35,7 +35,9 @@ describe('pngquant()', function () {
 		var binPath = require('../').path;
 
 		binCheck(binPath, ['--version'], function (err, works) {
-			cb(assert.equal(works, true));
+			assert(!err);
+			assert.equal(works, true);
+			cb();
 		});
 	});
 
@@ -46,11 +48,13 @@ describe('pngquant()', function () {
 			path.join(__dirname, 'fixtures', 'test.png')
 		];
 
-		execFile(binPath, args, function () {
+		execFile(binPath, args, function (err) {
 			var src = fs.statSync(path.join(__dirname, 'fixtures/test.png')).size;
 			var dest = fs.statSync(path.join(__dirname, 'tmp/test.png')).size;
 
-			cb(assert(dest < src));
+			assert(!err);
+			assert(dest < src);
+			cb();
 		});
 	});
 });

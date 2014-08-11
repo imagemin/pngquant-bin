@@ -16,12 +16,13 @@
     "pngquant": "cli.js"
   },
   "scripts": {
-    "test": "mocha --reporter list --timeout 50000",
-    "postinstall": "node index.js"
+    "postinstall": "node lib/install.js",
+    "test": "mocha --reporter list --timeout 50000"
   },
   "files": [
     "cli.js",
-    "index.js"
+    "index.js",
+    "lib"
   ],
   "keywords": [
     "compress",
@@ -32,12 +33,12 @@
     "png"
   ],
   "dependencies": {
-    "bin-build": "^0.1.0",
-    "bin-wrapper": "^0.3.0",
+    "bin-build": "^0.2.0",
+    "bin-wrapper": "^0.4.0",
     "log-symbols": "^1.0.0"
   },
   "devDependencies": {
-    "bin-check": "^0.1.0",
+    "bin-check": "^0.2.0",
     "mocha": "^1.18.2",
     "rimraf": "^2.2.6"
   }
