@@ -1,14 +1,14 @@
 # pngquant-bin [![Build Status](https://travis-ci.org/imagemin/pngquant-bin.svg?branch=master)](https://travis-ci.org/imagemin/pngquant-bin)
 
-[pngquant](http://pngquant.org) 2.3.0 Node.js wrapper that makes it seamlessly available as a local dependency on OS X, Linux and Windows.
-
 > pngquant is a command-line utility for converting 24/32-bit PNG images to paletted (8-bit) PNGs. The conversion reduces file sizes significantly (often as much as 70%) and preserves full alpha transparency.
+
 
 ## Install
 
-```bash
+```sh
 $ npm install --save pngquant-bin
 ```
+
 
 ## Usage
 
@@ -21,20 +21,22 @@ execFile(pngquant, ['-o', 'output.png', 'input.png'], function (err) {
 		throw err;
 	}
 
-	console.log('Image minified');
+	console.log('Image minified!');
 });
 ```
 
+
 ## CLI
 
-```bash
+```sh
 $ npm install --global pngquant-bin
 ```
 
-```bash
+```sh
 $ pngquant --help
 ```
 
+
 ## License
 
-MIT © [Kevin Mårtensson](http://kevinmartensson.com)
+MIT © [imagemin](https://github.com/imagemin)
