@@ -1,61 +1,59 @@
-/*global afterEach, beforeEach, describe, it */
 'use strict';
 
-var assert = require('assert');
 var binCheck = require('bin-check');
 var BinBuild = require('bin-build');
 var execFile = require('child_process').execFile;
 var fs = require('fs');
 var path = require('path');
-var rm = require('rimraf');
+var test = require('ava');
 
-describe('pngquant()', function () {
-	afterEach(function (cb) {
-		rm(path.join(__dirname, 'tmp'), cb);
-	});
+test('should rebuild the pngquant binaries', function (t) {
+	var tmp = path.join(__dirname, 'tmp');
+	var builder = new BinBuild()
+		.src('https://github.com/pornel/pngquant/archive/2.3.0.tar.gz')
+		.cmd('chmod +x configure')
+		.cmd('make install BINPREFIX="' + tmp + '"');
 
-	beforeEach(function () {
-		fs.mkdirSync(path.join(__dirname, 'tmp'));
-	});
+	builder.build(function (err) {
+		t.assert(!err);
 
-	it('should rebuild the pngquant binaries', function (cb) {
-		var tmp = path.join(__dirname, 'tmp');
-		var builder = new BinBuild()
-			.src('https://github.com/pornel/pngquant/archive/2.3.0.tar.gz')
-			.cmd('chmod +x configure')
-			.cmd('make install BINPREFIX="' + tmp + '"');
-
-		builder.build(function (err) {
-			assert(!err);
-			assert(fs.existsSync(path.join(tmp, 'pngquant')));
-			cb();
+		fs.exists(path.join(tmp, 'pngquant'), function (exists) {
+			t.assert(exists);
 		});
 	});
+});
 
-	it('should return path to binary and verify that it is working', function (cb) {
-		var binPath = require('../').path;
+test('should return path to binary and verify that it is working', function (t) {
+	t.plan(2);
 
-		binCheck(binPath, ['--version'], function (err, works) {
-			assert(!err);
-			assert.equal(works, true);
-			cb();
-		});
+	binCheck(require('../').path, ['--version'], function (err, works) {
+		t.assert(!err);
+		t.assert(works);
 	});
+});
 
-	it('should minify a PNG', function (cb) {
-		var binPath = require('../').path;
-		var args = [
-			'-o', path.join(__dirname, 'tmp/test.png'),
-			path.join(__dirname, 'fixtures', 'test.png')
-		];
+test('should minify a PNG', function (t) {
+	t.plan(5);
 
-		execFile(binPath, args, function (err) {
-			var src = fs.statSync(path.join(__dirname, 'fixtures/test.png')).size;
-			var dest = fs.statSync(path.join(__dirname, 'tmp/test.png')).size;
+	var args = [
+		'-o', path.join(__dirname, 'tmp/test.png'),
+		path.join(__dirname, 'fixtures/test.png')
+	];
 
-			assert(!err);
-			assert(dest < src);
-			cb();
+	fs.mkdir(path.join(__dirname, 'tmp'), function (err) {
+		t.assert(!err);
+
+		execFile(require('../').path, args, function (err) {
+			t.assert(!err);
+
+			fs.stat(path.join(__dirname, 'fixtures/test.png'), function (err, a) {
+				t.assert(!err);
+
+				fs.stat(path.join(__dirname, 'tmp/test.png'), function (err, b) {
+					t.assert(!err);
+					t.assert(b.size < a.size);
+				});
+			});
 		});
 	});
 });
