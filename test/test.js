@@ -8,6 +8,8 @@ var path = require('path');
 var test = require('ava');
 
 test('should rebuild the pngquant binaries', function (t) {
+	t.plan(2);
+
 	var tmp = path.join(__dirname, 'tmp');
 	var builder = new BinBuild()
 		.src('https://github.com/pornel/pngquant/archive/2.3.0.tar.gz')
