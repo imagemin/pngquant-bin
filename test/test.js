@@ -12,8 +12,9 @@ var tmp = path.join(__dirname, 'tmp');
 test('rebuild the pngquant binaries', function (t) {
 	t.plan(2);
 
+	var version = require('../').version;
 	var builder = new BinBuild()
-		.src('https://github.com/pornel/pngquant/archive/2.3.0.tar.gz')
+		.src('https://github.com/pornel/pngquant/archive/' + version + '.tar.gz')
 		.cmd('make install BINPREFIX="' + tmp + '"');
 
 	builder.build(function (err) {
