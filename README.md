@@ -1,4 +1,4 @@
-# pngquant-bin [![Build Status](https://travis-ci.org/imagemin/pngquant-bin.svg?branch=master)](https://travis-ci.org/imagemin/pngquant-bin)
+# pngquant-bin [![Build Status](http://img.shields.io/travis/imagemin/pngquant-bin.svg?style=flat)](https://travis-ci.org/imagemin/pngquant-bin)
 
 > pngquant is a command-line utility for converting 24/32-bit PNG images to paletted (8-bit) PNGs. The conversion reduces file sizes significantly (often as much as 70%) and preserves full alpha transparency.
 
