@@ -17,7 +17,7 @@ test('rebuild the pngquant binaries', function (t) {
 		.src('https://github.com/pornel/pngquant/archive/' + version + '.tar.gz')
 		.cmd('make install BINPREFIX="' + tmp + '"');
 
-	builder.build(function (err) {
+	builder.run(function (err) {
 		t.assert(!err, err);
 
 		fs.exists(path.join(tmp, 'pngquant'), function (exists) {
