@@ -1,28 +1,24 @@
 'use strict';
 
-var binCheck = require('bin-check');
-var BinBuild = require('bin-build');
-var compareSize = require('compare-size');
 var execFile = require('child_process').execFile;
 var fs = require('fs');
 var path = require('path');
+var binCheck = require('bin-check');
+var BinBuild = require('bin-build');
+var compareSize = require('compare-size');
 var test = require('ava');
 var tmp = path.join(__dirname, 'tmp');
 
 test('rebuild the pngquant binaries', function (t) {
 	t.plan(2);
 
-	var version = require('../').version;
 	var builder = new BinBuild()
-		.src('https://github.com/pornel/pngquant/archive/' + version + '.tar.gz')
+		.src('https://github.com/pornel/pngquant/archive/2.3.4.tar.gz')
 		.cmd('make install BINPREFIX="' + tmp + '"');
 
 	builder.run(function (err) {
 		t.assert(!err, err);
-
-		fs.exists(path.join(tmp, 'pngquant'), function (exists) {
-			t.assert(exists);
-		});
+		t.assert(fs.statSync(path.join(tmp, 'pngquant')).isFile());
 	});
 });
 
@@ -31,7 +27,7 @@ test('return path to binary and verify that it is working', function (t) {
 
 	binCheck(require('../').path, ['--version'], function (err, works) {
 		t.assert(!err, err);
-		t.assert(works);
+		t.assert(works, works);
 	});
 });
 
@@ -50,7 +46,7 @@ test('minify a PNG', function (t) {
 
 		compareSize(src, dest, function (err, res) {
 			t.assert(!err, err);
-			t.assert(res[dest] < res[src]);
+			t.assert(res[dest] < res[src], res[dest]);
 		});
 	});
 });
