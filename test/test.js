@@ -1,39 +1,45 @@
+/*global afterEach,beforeEach,it*/
 'use strict';
 
+var assert = require('assert');
 var execFile = require('child_process').execFile;
 var fs = require('fs');
 var path = require('path');
 var binCheck = require('bin-check');
 var BinBuild = require('bin-build');
 var compareSize = require('compare-size');
-var test = require('ava');
+var mkdirp = require('mkdirp');
+var rimraf = require('rimraf');
 var tmp = path.join(__dirname, 'tmp');
 
-test('rebuild the pngquant binaries', function (t) {
-	t.plan(2);
+beforeEach(function () {
+	mkdirp.sync(tmp);
+});
 
-	var builder = new BinBuild()
+afterEach(function () {
+	rimraf.sync(tmp);
+});
+
+it('rebuild the pngquant binaries', function (cb) {
+	new BinBuild()
 		.src('https://github.com/pornel/pngquant/archive/2.3.4.tar.gz')
-		.cmd('make install BINPREFIX="' + tmp + '"');
-
-	builder.run(function (err) {
-		t.assert(!err, err);
-		t.assert(fs.statSync(path.join(tmp, 'pngquant')).isFile());
-	});
+		.cmd('make install BINPREFIX="' + tmp + '"')
+		.run(function (err) {
+			assert(!err);
+			assert(fs.statSync(path.join(tmp, 'pngquant')).isFile());
+			cb();
+		});
 });
 
-test('return path to binary and verify that it is working', function (t) {
-	t.plan(2);
-
+it('return path to binary and verify that it is working', function (cb) {
 	binCheck(require('../').path, ['--version'], function (err, works) {
-		t.assert(!err, err);
-		t.assert(works, works);
+		assert(!err);
+		assert(works);
+		cb();
 	});
 });
 
-test('minify a PNG', function (t) {
-	t.plan(3);
-
+it('minify a PNG', function (cb) {
 	var src = path.join(__dirname, 'fixtures/test.png');
 	var dest = path.join(tmp, 'test.png');
 	var args = [
@@ -42,11 +48,12 @@ test('minify a PNG', function (t) {
 	];
 
 	execFile(require('../').path, args, function (err) {
-		t.assert(!err, err);
+		assert(!err);
 
 		compareSize(src, dest, function (err, res) {
-			t.assert(!err, err);
-			t.assert(res[dest] < res[src], res[dest]);
+			assert(!err);
+			assert(res[dest] < res[src]);
+			cb();
 		});
 	});
 });
