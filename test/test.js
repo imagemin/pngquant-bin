@@ -32,7 +32,7 @@ it('rebuild the pngquant binaries', function (cb) {
 });
 
 it('return path to binary and verify that it is working', function (cb) {
-	binCheck(require('../').path, ['--version'], function (err, works) {
+	binCheck(require('../'), ['--version'], function (err, works) {
 		assert(!err);
 		assert(works);
 		cb();
@@ -47,7 +47,7 @@ it('minify a PNG', function (cb) {
 		src
 	];
 
-	execFile(require('../').path, args, function (err) {
+	execFile(require('../'), args, function (err) {
 		assert(!err);
 
 		compareSize(src, dest, function (err, res) {
