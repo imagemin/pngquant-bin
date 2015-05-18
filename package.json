@@ -7,7 +7,7 @@
   "author": {
     "name": "Kevin Mårtensson",
     "email": "kevinmartensson@gmail.com",
-    "url": "http://kevinmartensson.com"
+    "url": "kevinmartensson.com"
   },
   "engines": {
     "node": ">=0.10.0"
