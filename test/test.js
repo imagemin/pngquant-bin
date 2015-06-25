@@ -22,7 +22,7 @@ afterEach(function () {
 
 it('rebuild the pngquant binaries', function (cb) {
 	new BinBuild()
-		.src('https://github.com/pornel/pngquant/archive/2.4.1.tar.gz')
+		.src('https://github.com/pornel/pngquant/archive/2.4.2.tar.gz')
 		.cmd('make install BINPREFIX="' + tmp + '"')
 		.run(function (err) {
 			assert(!err);
