@@ -25,6 +25,7 @@ it('rebuild the pngquant binaries', function (cb) {
 
 	new BinBuild()
 		.src('https://github.com/pornel/pngquant/archive/2.5.2.tar.gz')
+		.cmd('./configure --prefix="' + tmp + '"')
 		.cmd('make install BINPREFIX="' + tmp + '"')
 		.run(function (err) {
 			if (err) {
