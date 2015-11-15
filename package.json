@@ -17,7 +17,7 @@
   },
   "scripts": {
     "postinstall": "node lib/install.js",
-    "test": "xo && mocha --timeout 20000"
+    "test": "xo && mocha"
   },
   "files": [
     "cli.js",
