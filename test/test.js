@@ -27,9 +27,20 @@ it('rebuild the pngquant binaries', function (cb) {
 		.src('https://github.com/pornel/pngquant/archive/2.5.2.tar.gz')
 		.cmd('make install BINPREFIX="' + tmp + '"')
 		.run(function (err) {
-			assert(!err);
-			assert(fs.statSync(path.join(tmp, 'pngquant')).isFile());
-			cb();
+			if (err) {
+				cb(err);
+				return;
+			}
+
+			fs.stat(path.join(tmp, 'pngquant'), function (err, stats) {
+				if (err) {
+					cb(err);
+					return;
+				}
+
+				assert(stats.isFile());
+				cb();
+			});
 		});
 });
 
