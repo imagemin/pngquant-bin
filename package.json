@@ -1,6 +1,6 @@
 {
   "name": "pngquant-bin",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "pngquant wrapper that makes it seamlessly available as a local dependency",
   "license": "MIT",
   "repository": "imagemin/pngquant-bin",
