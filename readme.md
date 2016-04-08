@@ -13,10 +13,10 @@ $ npm install --save pngquant-bin
 ## Usage
 
 ```js
-var execFile = require('child_process').execFile;
-var pngquant = require('pngquant-bin');
+const execFile = require('child_process').execFile;
+const pngquant = require('pngquant-bin');
 
-execFile(pngquant, ['-o', 'output.png', 'input.png'], function (err) {
+execFile(pngquant, ['-o', 'output.png', 'input.png'], err => {
 	console.log('Image minified!');
 });
 ```

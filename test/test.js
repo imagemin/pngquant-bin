@@ -1,6 +1,5 @@
-/* eslint-env mocha */
 'use strict';
-
+/* eslint-env mocha */
 var assert = require('assert');
 var execFile = require('child_process').execFile;
 var fs = require('fs');
