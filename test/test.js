@@ -9,6 +9,7 @@ var BinBuild = require('bin-build');
 var compareSize = require('compare-size');
 var mkdirp = require('mkdirp');
 var rimraf = require('rimraf');
+
 var tmp = path.join(__dirname, 'tmp');
 
 beforeEach(function (cb) {
@@ -23,7 +24,8 @@ it('rebuild the pngquant binaries', function (cb) {
 	this.timeout(20000);
 
 	new BinBuild()
-		.src('https://github.com/pornel/pngquant/archive/2.5.2.tar.gz')
+		.src('https://github.com/pornel/pngquant/archive/2.7.1.tar.gz')
+		.cmd('rm ./INSTALL')
 		.cmd('./configure --prefix="' + tmp + '"')
 		.cmd('make install BINPREFIX="' + tmp + '"')
 		.run(function (err) {
