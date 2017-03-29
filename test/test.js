@@ -1,85 +1,45 @@
 'use strict';
-/* eslint-env mocha */
-var assert = require('assert');
-var execFile = require('child_process').execFile;
-var fs = require('fs');
-var path = require('path');
-var binCheck = require('bin-check');
-var BinBuild = require('bin-build');
-var compareSize = require('compare-size');
-var mkdirp = require('mkdirp');
-var rimraf = require('rimraf');
 
-var tmp = path.join(__dirname, 'tmp');
+const fs = require('fs');
+const path = require('path');
+const test = require('ava');
+const execa = require('execa');
+const tempy = require('tempy');
+const binCheck = require('bin-check');
+const BinBuild = require('bin-build');
+const compareSize = require('compare-size');
+const pngquant = require('..');
 
-beforeEach(function (cb) {
-	mkdirp(tmp, cb);
-});
-
-afterEach(function (cb) {
-	rimraf(tmp, cb);
-});
-
-it('rebuild the pngquant binaries', function (cb) {
-	this.timeout(20000);
+test.cb('rebuild the pngquant binaries', t => {
+	const tmp = tempy.directory();
 
 	new BinBuild()
 		.src('https://github.com/pornel/pngquant/archive/2.7.1.tar.gz')
 		.cmd('rm ./INSTALL')
-		.cmd('./configure --prefix="' + tmp + '"')
-		.cmd('make install BINPREFIX="' + tmp + '"')
-		.run(function (err) {
-			if (err) {
-				cb(err);
-				return;
-			}
-
-			fs.stat(path.join(tmp, 'pngquant'), function (err, stats) {
-				if (err) {
-					cb(err);
-					return;
-				}
-
-				assert(stats.isFile());
-				cb();
-			});
+		.cmd(`./configure --prefix="${tmp}"`)
+		.cmd(`make install BINPREFIX="${tmp}"`)
+		.run(err => {
+			t.ifError(err);
+			t.true(fs.existsSync(path.join(tmp, 'pngquant')));
+			t.end();
 		});
 });
 
-it('return path to binary and verify that it is working', function (cb) {
-	binCheck(require('../'), ['--version'], function (err, works) {
-		if (err) {
-			cb(err);
-			return;
-		}
-
-		assert(works);
-		cb();
-	});
+test('return path to binary and verify that it is working', async t => {
+	t.true(await binCheck(pngquant, ['--version']));
 });
 
-it('minify a PNG', function (cb) {
-	var src = path.join(__dirname, 'fixtures/test.png');
-	var dest = path.join(tmp, 'test.png');
-	var args = [
+test('minify a PNG', async t => {
+	const tmp = tempy.directory();
+	const src = path.join(__dirname, 'fixtures/test.png');
+	const dest = path.join(tmp, 'test.png');
+	const args = [
 		'-o', dest,
 		src
 	];
 
-	execFile(require('../'), args, function (err) {
-		if (err) {
-			cb(err);
-			return;
-		}
+	await execa(pngquant, args);
+	const res = await compareSize(src, dest);
 
-		compareSize(src, dest, function (err, res) {
-			if (err) {
-				cb(err);
-				return;
-			}
-
-			assert(res[dest] < res[src]);
-			cb();
-		});
-	});
+	t.true(res[dest] < res[src]);
 });
