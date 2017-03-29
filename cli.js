@@ -1,6 +1,5 @@
 #!/usr/bin/env node
 'use strict';
-
 const spawn = require('child_process').spawn;
 const pngquant = require('.');
 

@@ -1,7 +1,7 @@
 {
   "name": "pngquant-bin",
   "version": "3.1.1",
-  "description": "pngquant wrapper that makes it seamlessly available as a local dependency",
+  "description": "`pngquant` wrapper that makes it seamlessly available as a local dependency",
   "license": "MIT",
   "repository": "imagemin/pngquant-bin",
   "author": {
@@ -20,11 +20,11 @@
       "url": "github.com/shinnn"
     }
   ],
-  "engines": {
-    "node": ">=4"
-  },
   "bin": {
     "pngquant": "cli.js"
+  },
+  "engines": {
+    "node": ">=4"
   },
   "scripts": {
     "postinstall": "node lib/install.js",
@@ -36,12 +36,14 @@
     "lib"
   ],
   "keywords": [
+    "imagemin",
     "compress",
     "image",
     "img",
     "minify",
     "optimize",
-    "png"
+    "png",
+    "pngquant"
   ],
   "dependencies": {
     "bin-build": "^2.2.0",
