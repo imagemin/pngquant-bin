@@ -8,7 +8,7 @@ You probably want [`imagemin-pngquant`](https://github.com/imagemin/imagemin-png
 ## Install
 
 ```
-$ npm install --save pngquant-bin
+$ npm install pngquant-bin
 ```
 
 
