@@ -25,7 +25,7 @@ test('rebuild the pngquant binaries', async t => {
 	t.true(fs.existsSync(path.join(tmp, 'pngquant')));
 });
 
-test('rebuild the pngquant binaries from mirror', async t=>{
+test('rebuild the pngquant binaries from mirror', async t => {
 	const tmp = tempy.directory();
 
 	process.env.NPM_CONFIG_IMAGEMIN_PNGQUANT_MIRROR = 'https://github.com/soulteary/imagemin-binaries/raw/master';
