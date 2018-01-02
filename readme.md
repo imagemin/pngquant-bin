@@ -35,6 +35,15 @@ $ pngquant --help
 ```
 
 
+## Updating pre-compiled binaries
+
+The Linux binaries are statically linked so they should work on all Linux distributions. To recompile them:
+
+1. `sudo apt-get install libpng-dev`
+2. `./configure CFLAGS=-static && make && cp pngquant pngquant-64`
+3. Repeat the above commands, but in a 32-bin docker container started with: docker run -ti -v `pwd`:/source i386/debian:9.3 bash
+
+
 ## License
 
 MIT © [Imagemin](https://github.com/imagemin)
