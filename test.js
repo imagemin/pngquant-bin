@@ -12,7 +12,29 @@ const m = require('.');
 test('rebuild the pngquant binaries', async t => {
 	const tmp = tempy.directory();
 
-	await binBuild.url('http://pngquant.org/pngquant-2.10.1-src.tar.gz', [
+	const domain = process.env.NPM_CONFIG_IMAGEMIN_PNGQUANT_MIRROR ||
+                 process.env.IMAGEMIN_PNGQUANT_MIRROR ||
+                 'http://pngquant.org';
+
+	await binBuild.url(domain + '/pngquant-2.10.1-src.tar.gz', [
+		'rm ./INSTALL',
+		`./configure --prefix="${tmp}"`,
+		`make install BINPREFIX="${tmp}"`
+	]);
+
+	t.true(fs.existsSync(path.join(tmp, 'pngquant')));
+});
+
+test('rebuild the pngquant binaries from mirror', async t => {
+	const tmp = tempy.directory();
+
+	process.env.NPM_CONFIG_IMAGEMIN_PNGQUANT_MIRROR = 'https://github.com/soulteary/imagemin-binaries/raw/master';
+
+	const domain = process.env.NPM_CONFIG_IMAGEMIN_PNGQUANT_MIRROR ||
+                 process.env.IMAGEMIN_PNGQUANT_MIRROR ||
+                 'http://pngquant.org';
+
+	await binBuild.url(domain + '/pngquant-2.10.1-src.tar.gz', [
 		'rm ./INSTALL',
 		`./configure --prefix="${tmp}"`,
 		`make install BINPREFIX="${tmp}"`
