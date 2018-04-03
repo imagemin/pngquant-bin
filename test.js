@@ -12,7 +12,7 @@ const m = require('.');
 test('rebuild the pngquant binaries', async t => {
 	const tmp = tempy.directory();
 
-	await binBuild.url('http://pngquant.org/pngquant-2.10.1-src.tar.gz', [
+	await binBuild.file(path.resolve(__dirname, 'vendor/src-pngquant/pngquant-2.10.1-src.tar.gz'), [
 		'rm ./INSTALL',
 		`./configure --prefix="${tmp}"`,
 		`make install BINPREFIX="${tmp}"`
