@@ -34,7 +34,7 @@
 		"cli.js",
 		"index.js",
 		"lib",
-		"vendor/src-pngquant"
+		"vendor/source"
 	],
 	"keywords": [
 		"imagemin",
