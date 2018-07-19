@@ -34,7 +34,7 @@
 		"cli.js",
 		"index.js",
 		"lib",
-		"vendor/src-pngquant/pngquant-2.10.1-src.tar.gz"
+		"vendor/src-pngquant"
 	],
 	"keywords": [
 		"imagemin",
