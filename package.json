@@ -2,7 +2,7 @@
 	"name": "pngquant-bin",
 	"version": "5.0.2",
 	"description": "`pngquant` wrapper that makes it seamlessly available as a local dependency",
-	"license": "MIT",
+	"license": "GPL-3.0+",
 	"repository": "imagemin/pngquant-bin",
 	"author": {
 		"name": "Kevin Mårtensson",
