@@ -15,7 +15,7 @@ $ npm install pngquant-bin
 ## Usage
 
 ```js
-const execFile = require('child_process').execFile;
+const {execFile} = require('child_process');
 const pngquant = require('pngquant-bin');
 
 execFile(pngquant, ['-o', 'output.png', 'input.png'], err => {
