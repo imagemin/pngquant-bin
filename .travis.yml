@@ -3,6 +3,9 @@ node_js:
   - '14'
   - '12'
   - '10'
+os:
+  - linux
+  - osx
 addons:
   apt:
     packages:
