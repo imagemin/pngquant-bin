@@ -1,4 +1,4 @@
-# pngquant-bin [![Build Status](https://travis-ci.org/imagemin/pngquant-bin.svg?branch=master)](https://travis-ci.org/imagemin/pngquant-bin)
+# pngquant-bin ![GitHub Actions Status](https://github.com/imagemin/pngquant-bin/workflows/test/badge.svg?branch=master)
 
 > [`pngquant`](https://github.com/kornelski/pngquant) is a PNG compressor that significantly reduces file sizes by converting images to a more efficient 8-bit PNG format
 
