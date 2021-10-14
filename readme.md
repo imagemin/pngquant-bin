@@ -11,6 +11,10 @@ You probably want [`imagemin-pngquant`](https://github.com/imagemin/imagemin-png
 $ npm install pngquant-bin
 ```
 
+If you wish to pull through your own internal mirror you can use `GITHUB_RAW_URL`
+to point the postinstall step to pull through your mirror. By default, this package
+attempts to install from `https://raw.githubusercontent.com` on postinstall, and compiles
+otherwise if the connection can't be made.
 
 ## Usage
 
