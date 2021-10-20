@@ -1,6 +1,6 @@
 #!/usr/bin/env node
-'use strict';
-const execa = require('execa');
-const m = require('.');
+import process from 'node:process';
+import execa from 'execa';
+import pngquant from './index.js';
 
-execa(m, process.argv.slice(2), {stdio: 'inherit'});
+execa(pngquant, process.argv.slice(2), {stdio: 'inherit'});
