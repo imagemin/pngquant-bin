@@ -12,6 +12,16 @@ $ npm install pngquant-bin
 ```
 
 
+Make sure you have the correct version of [libimagequant](https://github.com/ImageOptim/libimagequant).
+
+```
+# via Homebrew for macOS
+$ brew install libimagequant
+
+# via apt-get for Debian distributions
+$ sudo apt-get install libimagequant-dev
+```
+
 ## Usage
 
 ```js
