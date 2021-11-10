@@ -5,6 +5,7 @@
 	"license": "GPL-3.0+",
 	"repository": "imagemin/pngquant-bin",
 	"type": "module",
+	"exports": "./index.js",
 	"author": {
 		"name": "Kevin Mårtensson",
 		"email": "kevinmartensson@gmail.com",
