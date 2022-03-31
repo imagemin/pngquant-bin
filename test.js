@@ -3,7 +3,7 @@ import path from 'node:path';
 import process from 'node:process';
 import {fileURLToPath} from 'node:url';
 import test from 'ava';
-import execa from 'execa';
+import {execa} from 'execa';
 import tempy from 'tempy';
 import binCheck from 'bin-check';
 import binBuild from 'bin-build';
@@ -18,7 +18,7 @@ test('rebuild the pngquant binaries', async t => {
 	}
 
 	const temporary = tempy.directory();
-	const source = fileURLToPath(new URL('./vendor/source/pngquant.tar.gz', import.meta.url));
+	const source = fileURLToPath(new URL('vendor/source/pngquant.tar.gz', import.meta.url));
 
 	await binBuild.file(source, [
 		'rm ./INSTALL',
@@ -35,7 +35,7 @@ test('verify binary', async t => {
 
 test('minify a png', async t => {
 	const temporary = tempy.directory();
-	const src = fileURLToPath(new URL('./fixtures/test.png', import.meta.url));
+	const src = fileURLToPath(new URL('fixtures/test.png', import.meta.url));
 	const dest = path.join(temporary, 'test.png');
 	const args = [
 		'-o',
