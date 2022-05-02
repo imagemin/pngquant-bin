@@ -4,7 +4,7 @@ import process from 'node:process';
 import {fileURLToPath} from 'node:url';
 import test from 'ava';
 import {execa} from 'execa';
-import tempy from 'tempy';
+import {temporaryDirectory} from 'tempy';
 import binCheck from 'bin-check';
 import binBuild from 'bin-build';
 import compareSize from 'compare-size';
@@ -17,7 +17,7 @@ test('rebuild the pngquant binaries', async t => {
 		return;
 	}
 
-	const temporary = tempy.directory();
+	const temporary = temporaryDirectory();
 	const source = fileURLToPath(new URL('vendor/source/pngquant.tar.gz', import.meta.url));
 
 	await binBuild.file(source, [
@@ -34,7 +34,7 @@ test('verify binary', async t => {
 });
 
 test('minify a png', async t => {
-	const temporary = tempy.directory();
+	const temporary = temporaryDirectory();
 	const src = fileURLToPath(new URL('fixtures/test.png', import.meta.url));
 	const dest = path.join(temporary, 'test.png');
 	const args = [
