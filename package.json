@@ -1,9 +1,11 @@
 {
 	"name": "pngquant-bin",
-	"version": "6.0.0",
+	"version": "8.0.1",
 	"description": "`pngquant` wrapper that makes it seamlessly available as a local dependency",
 	"license": "GPL-3.0+",
 	"repository": "imagemin/pngquant-bin",
+	"type": "module",
+	"exports": "./index.js",
 	"author": {
 		"name": "Kevin Mårtensson",
 		"email": "kevinmartensson@gmail.com",
@@ -24,7 +26,7 @@
 		"pngquant": "cli.js"
 	},
 	"engines": {
-		"node": ">=10"
+		"node": "^14.13.1 || >=16.0.0"
 	},
 	"scripts": {
 		"postinstall": "node lib/install.js",
@@ -49,14 +51,13 @@
 	"dependencies": {
 		"bin-build": "^3.0.0",
 		"bin-wrapper": "^4.0.1",
-		"execa": "^4.0.0",
-		"logalot": "^2.0.0"
+		"execa": "^6.1.0"
 	},
 	"devDependencies": {
-		"ava": "^3.8.0",
+		"ava": "^4.2.0",
 		"bin-check": "^4.0.1",
 		"compare-size": "^3.0.0",
-		"tempy": "^0.5.0",
-		"xo": "^0.30.0"
+		"tempy": "^3.0.0",
+		"xo": "^0.48.0"
 	}
 }
