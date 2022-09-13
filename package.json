@@ -30,7 +30,7 @@
 	},
 	"scripts": {
 		"postinstall": "node lib/install.js",
-		"test": "xo && ava --timeout=120s"
+		"test": "ava --timeout=120s && node ./utils.test.js"
 	},
 	"files": [
 		"cli.js",
