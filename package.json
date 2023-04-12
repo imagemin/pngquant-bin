@@ -3,23 +3,30 @@
 	"version": "8.0.1",
 	"description": "`pngquant` wrapper that makes it seamlessly available as a local dependency",
 	"license": "GPL-3.0+",
-	"repository": "imagemin/pngquant-bin",
+	"homepage": "https://github.com/imagemin/pngquant-bin#readme",
+	"bugs": {
+		"url": "https://github.com/imagemin/pngquant-bin/issues"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/imagemin/pngquant-bin.git"
+	},
 	"type": "module",
 	"exports": "./index.js",
 	"author": {
 		"name": "Kevin Mårtensson",
 		"email": "kevinmartensson@gmail.com",
-		"url": "github.com/kevva"
+		"url": "https://github.com/kevva"
 	},
 	"maintainers": [
 		{
 			"name": "Sindre Sorhus",
 			"email": "sindresorhus@gmail.com",
-			"url": "sindresorhus.com"
+			"url": "https://sindresorhus.com"
 		},
 		{
 			"name": "Shinnosuke Watanabe",
-			"url": "github.com/shinnn"
+			"url": "https://github.com/shinnn"
 		}
 	],
 	"bin": {
