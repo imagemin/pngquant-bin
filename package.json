@@ -6,27 +6,11 @@
 	"repository": "imagemin/pngquant-bin",
 	"type": "module",
 	"exports": "./index.js",
-	"author": {
-		"name": "Kevin Mårtensson",
-		"email": "kevinmartensson@gmail.com",
-		"url": "github.com/kevva"
-	},
-	"maintainers": [
-		{
-			"name": "Sindre Sorhus",
-			"email": "sindresorhus@gmail.com",
-			"url": "sindresorhus.com"
-		},
-		{
-			"name": "Shinnosuke Watanabe",
-			"url": "github.com/shinnn"
-		}
-	],
 	"bin": {
 		"pngquant": "cli.js"
 	},
 	"engines": {
-		"node": "^14.13.1 || >=16.0.0"
+		"node": ">=18"
 	},
 	"scripts": {
 		"postinstall": "node lib/install.js",
@@ -42,7 +26,6 @@
 		"imagemin",
 		"compress",
 		"image",
-		"img",
 		"minify",
 		"optimize",
 		"png",
@@ -51,13 +34,13 @@
 	"dependencies": {
 		"bin-build": "^3.0.0",
 		"bin-wrapper": "^4.0.1",
-		"execa": "^6.1.0"
+		"execa": "^8.0.1"
 	},
 	"devDependencies": {
-		"ava": "^4.2.0",
+		"ava": "^6.1.2",
 		"bin-check": "^4.0.1",
 		"compare-size": "^3.0.0",
 		"tempy": "^3.0.0",
-		"xo": "^0.48.0"
+		"xo": "^0.58.0"
 	}
 }

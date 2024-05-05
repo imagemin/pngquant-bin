@@ -4,22 +4,20 @@
 
 You probably want [`imagemin-pngquant`](https://github.com/imagemin/imagemin-pngquant) instead.
 
-
 ## Install
 
+```sh
+npm install pngquant-bin
 ```
-$ npm install pngquant-bin
-```
-
 
 Make sure you have the correct version of [libimagequant](https://github.com/ImageOptim/libimagequant).
 
-```
+```sh
 # via Homebrew for macOS
-$ brew install libimagequant
+brew install libimagequant
 
 # via apt-get for Debian distributions
-$ sudo apt-get install libimagequant-dev
+sudo apt-get install libimagequant-dev
 ```
 
 ## Usage
@@ -33,17 +31,15 @@ execFile(pngquant, ['-o', 'output.png', 'input.png'], error => {
 });
 ```
 
-
 ## CLI
 
-```
-$ npm install --global pngquant-bin
-```
-
-```
-$ pngquant --help
+```sh
+npm install --global pngquant-bin
 ```
 
+```sh
+pngquant --help
+```
 
 ## Updating pre-compiled binaries
 

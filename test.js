@@ -35,16 +35,16 @@ test('verify binary', async t => {
 
 test('minify a png', async t => {
 	const temporary = temporaryDirectory();
-	const src = fileURLToPath(new URL('fixtures/test.png', import.meta.url));
-	const dest = path.join(temporary, 'test.png');
-	const args = [
+	const source = fileURLToPath(new URL('fixtures/test.png', import.meta.url));
+	const destination = path.join(temporary, 'test.png');
+	const arguments_ = [
 		'-o',
-		dest,
-		src,
+		destination,
+		source,
 	];
 
-	await execa(pngquant, args);
-	const result = await compareSize(src, dest);
+	await execa(pngquant, arguments_);
+	const result = await compareSize(source, destination);
 
-	t.true(result[dest] < result[src]);
+	t.true(result[destination] < result[source]);
 });
